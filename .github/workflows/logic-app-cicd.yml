@@ -25,6 +25,26 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Azure Login
+        uses: Azure/login@v1
+        with:
+          # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
+          creds: # optional
+          # ClientId of the Azure Service principal created.
+          client-id: # optional
+          # TenantId of the Azure Service principal created.
+          tenant-id: # optional
+          # Azure subscriptionId
+          subscription-id: # optional
+          # Set this value to true to enable Azure PowerShell Login in addition to Az CLI login
+          enable-AzPSSession: # optional
+          # Name of the environment. Supported values are azurecloud, azurestack, azureusgovernment, azurechinacloud, azuregermancloud. Default being azurecloud
+          environment: # optional, default is azurecloud
+          # Set this value to true to enable support for accessing tenants without subscriptions
+          allow-no-subscriptions: # optional
+          # Provide audience field for access-token. Default value is api://AzureADTokenExchange
+          audience: # optional, default is api://AzureADTokenExchange
+    
       - name: Deploy Azure Resource Manager (ARM) Template
         uses: Azure/arm-deploy@v1
         with:
@@ -33,14 +53,6 @@ jobs:
           # Provide the name of a resource group, only required for resource Group deployments.
           resourceGroupName: ${{ secrets.rg-name }}
           # Specify the path or URL to the Azure Resource Manager template.
-          template: 
+          template: bicep/logic-app-1.bicep
           # Incremental (only add resources to resource group) or Complete (remove extra resources from resource group) or Validate (only validates the template).
-          deploymentMode: # optional
-          # Specifies the name of the resource group deployment to create.
-          deploymentName: # optional
-          # Supply deployment parameter values.
-          parameters: # optional
-          # Specify whether to fail the action if some data is written to stderr stream of az cli. Valid values are: true, false
-          failOnStdErr: # optional, default is true
-          # Specify any additional arguments for the deployment.
-          additionalArguments: # optional
+          deploymentMode: Incremental
