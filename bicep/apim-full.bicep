@@ -10,7 +10,7 @@ param subscriptions_611ed28e1c87c10043070002_displayName string
 @secure()
 param users_1_lastName string
 param service_marcelos_apim1_name string = 'marcelos-apim1'
-param components_app_insights_apim_externalid string = '/subscriptions/69758558-4e19-41c9-add5-4f6028ef4956/resourceGroups/apim-demo-rg/providers/microsoft.insights/components/app-insights-apim'
+param components_app_insights_apim_externalid string = '/subscriptions/REDACTED-41c9-add5-4f6028ef4956/resourceGroups/apim-demo-rg/providers/microsoft.insights/components/app-insights-apim'
 
 resource service_marcelos_apim1_name_resource 'Microsoft.ApiManagement/service@2021-04-01-preview' = {
   name: service_marcelos_apim1_name
@@ -122,7 +122,7 @@ resource service_marcelos_apim1_name_LogicApp_logic_app_1_apim_demo_rg_697585584
     description: 'logic-app-1'
     url: 'https://prod-18.northcentralus.logic.azure.com/workflows/655fefe26d9c4bd8b6dc44ddfd071585/triggers'
     protocol: 'http'
-    resourceId: 'https://management.azure.com/subscriptions/69758558-4e19-41c9-add5-4f6028ef4956/resourceGroups/apim-demo-rg/providers/Microsoft.Logic/workflows/logic-app-1'
+    resourceId: 'https://management.azure.com/subscriptions/REDACTED-add5-4f6028ef4956/resourceGroups/apim-demo-rg/providers/Microsoft.Logic/workflows/logic-app-1'
   }
 }
 
@@ -133,7 +133,7 @@ resource service_marcelos_apim1_name_nameplaterecognizerfunctionapp 'Microsoft.A
     description: 'nameplaterecognizerfunctionapp'
     url: 'https://nameplaterecognizerfunctionapp.azurewebsites.net/api'
     protocol: 'http'
-    resourceId: 'https://management.azure.com/subscriptions/69758558-4e19-41c9-add5-4f6028ef4956/resourceGroups/apim-demo-rg/providers/Microsoft.Web/sites/nameplaterecognizerfunctionapp'
+    resourceId: 'https://management.azure.com/subscriptions/REDACTEDe19-41c9-add5-4f6028ef4956/resourceGroups/apim-demo-rg/providers/Microsoft.Web/sites/nameplaterecognizerfunctionapp'
     credentials: {
       header: {
         'x-functions-key': [

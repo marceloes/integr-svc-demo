@@ -1,5 +1,6 @@
 param workflows_logic_app_1_name string = 'logic-app-1'
-param connections_service_now_externalid string = '/subscriptions/69758558-4e19-41c9-add5-4f6028ef4956/resourceGroups/apim-demo-rg/providers/Microsoft.Web/connections/service-now'
+param subscription_id string
+param connections_service_now_externalid string = '/subscriptions/${subscription_id}/resourceGroups/apim-demo-rg/providers/Microsoft.Web/connections/service-now'
 
 resource workflows_logic_app_1_name_resource 'Microsoft.Logic/workflows@2017-07-01' = {
   name: workflows_logic_app_1_name
@@ -86,7 +87,7 @@ resource workflows_logic_app_1_name_resource 'Microsoft.Logic/workflows@2017-07-
           'service-now': {
             connectionId: connections_service_now_externalid
             connectionName: 'service-now'
-            id: '/subscriptions/69758558-4e19-41c9-add5-4f6028ef4956/providers/Microsoft.Web/locations/northcentralus/managedApis/service-now'
+            id: '/subscriptions/${subscription_id}/providers/Microsoft.Web/locations/northcentralus/managedApis/service-now'
           }
         }
       }
